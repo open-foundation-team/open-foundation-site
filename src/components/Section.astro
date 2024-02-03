@@ -1,14 +1,18 @@
 ---
-import { boolean } from "astro/zod";
-
 interface Props {
     isPrimary?: boolean;
+    noSeparator?: boolean;
 }
 
-const { isPrimary } = Astro.props;
+const { isPrimary, noSeparator } = Astro.props;
 ---
 
-<div class:list={["section-styled", { primary: isPrimary }]}>
+<div
+    class:list={[
+        "section-styled",
+        { primary: isPrimary, separator: !noSeparator },
+    ]}
+>
     <div class="section-content">
         <slot />
     </div>
@@ -22,7 +26,9 @@ const { isPrimary } = Astro.props;
 
         width: 100%;
 
-        border-bottom: 1px solid #d8d8d8;
+        &.separator {
+            border-bottom: 1px solid #d8d8d8;
+        }
 
         &.primary {
             background: #f8f8f8;
