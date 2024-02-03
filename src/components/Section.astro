@@ -1,0 +1,40 @@
+---
+import { boolean } from "astro/zod";
+
+interface Props {
+    isPrimary?: boolean;
+}
+
+const { isPrimary } = Astro.props;
+---
+
+<div class:list={["section-styled", { primary: isPrimary }]}>
+    <div class="section-content">
+        <slot />
+    </div>
+</div>
+
+<style type="sass">
+    .section-styled {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+
+        border-bottom: 1px solid #d8d8d8;
+
+        &.primary {
+            background: #f8f8f8;
+        }
+
+        .section-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 850px;
+            padding: 2rem 0;
+        }
+    }
+</style>

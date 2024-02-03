@@ -1,9 +1,102 @@
 ---
+import Section from "../components/Section.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-    <main></main>
+    <main>
+        <!-- Hero section -->
+        <Section isPrimary>
+            <div class="hero-section">
+                <div class="hero-text">
+                    <p class="hero-heading">
+                        Developing software for the future, taking an Open
+                        Source approach.
+                    </p>
+                    <p class="hero-sub">
+                        Here at Open Foundation, we take Open Source seriously,
+                        by being open, we empower developers and businesses to
+                        deliver powerful and inovative ideas.
+                    </p>
+                </div>
+                <img class="hero-image" src="/circuit.svg" alt="" />
+            </div>
+        </Section>
+
+        <!-- Projects section -->
+        <Section />
+
+        <!-- Languages section -->
+        <Section isPrimary={true}>
+            <div class="languages-section">
+                <div class="languages-text">
+                    <p class="title">Our varied tech stack</p>
+                    <p class="subtitle">
+                        We apply the cutting edge technologies that matter.
+                    </p>
+                </div>
+            </div>
+        </Section>
+    </main>
 </Layout>
 
-<style></style>
+<style>
+    main {
+        margin-top: 12dvh;
+    }
+
+    .hero-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 2rem;
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2rem;
+
+            width: 55%;
+            line-height: 1.5;
+
+            .hero-heading {
+                font-size: 1.75rem;
+                font-weight: 600;
+            }
+
+            .hero-sub {
+                font-weight: 100;
+            }
+        }
+
+        svg,
+        .hero-image {
+            width: 45%;
+        }
+    }
+
+    .languages-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        .languages-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            .title {
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+            .subtitle {
+                font-weight: 100;
+            }
+        }
+
+        .languages-icons {
+        }
+    }
+</style>
