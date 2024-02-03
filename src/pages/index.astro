@@ -1,9 +1,21 @@
 ---
 import Section from "../components/Section.astro";
 import Layout from "../layouts/Layout.astro";
+
+// List of technologies
+const techstack = [
+    "astro",
+    "docker",
+    "kubernetes",
+    "next",
+    "node",
+    "php",
+    "react",
+    "typescript",
+];
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Open Foundation - Open Source">
     <main>
         <!-- Hero section -->
         <Section isPrimary>
@@ -27,13 +39,24 @@ import Layout from "../layouts/Layout.astro";
         <Section />
 
         <!-- Languages section -->
-        <Section isPrimary={true}>
+        <Section>
             <div class="languages-section">
                 <div class="languages-text">
                     <p class="title">Our varied tech stack</p>
                     <p class="subtitle">
                         We apply the cutting edge technologies that matter.
                     </p>
+                </div>
+                <div class="languages-icons">
+                    {
+                        techstack.map((logo) => (
+                            <img
+                                class="tech-logo"
+                                src={`/techstack/${logo}.png`}
+                                alt={`${logo} logo`}
+                            />
+                        ))
+                    }
                 </div>
             </div>
         </Section>
@@ -48,8 +71,10 @@ import Layout from "../layouts/Layout.astro";
     .hero-section {
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-between;
         gap: 2rem;
+
+        width: 100%;
 
         .hero-text {
             display: flex;
@@ -80,7 +105,7 @@ import Layout from "../layouts/Layout.astro";
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2rem;
+        gap: 3rem;
 
         .languages-text {
             display: flex;
@@ -97,6 +122,14 @@ import Layout from "../layouts/Layout.astro";
         }
 
         .languages-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            .tech-logo {
+                width: 60px;
+            }
         }
     }
 </style>
