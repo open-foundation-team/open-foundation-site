@@ -1,0 +1,79 @@
+---
+interface Link {
+    text: string;
+    href: string;
+}
+
+interface Props {}
+
+const {} = Astro.props;
+---
+
+<footer class="footer-styled">
+    <div class="footer-content">
+        <div class="footer-top"></div>
+        <div class="spacer"></div>
+        <div class="footer-bottom">
+            <p>
+                Open Foundation ©️ {new Date().getFullYear()} - All rights reserverd.
+            </p>
+            <p>team@openfoundation.com</p>
+        </div>
+    </div>
+</footer>
+
+<style type="sass">
+    .footer-styled {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 20dvh;
+
+        background: #fff;
+        bottom: 0;
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+
+            height: 100%;
+            width: 100%;
+            padding: 1rem;
+
+            .footer-bottom {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+
+                font-weight: 100;
+                color: #909090;
+            }
+
+            .spacer {
+                width: 100%;
+                border-bottom: 1px solid #d2d3d3;
+            }
+        }
+
+        .footer-content {
+            @media screen and (min-width: 640px) {
+                max-width: 640px;
+            }
+            @media screen and (min-width: 768px) {
+                max-width: 768px;
+            }
+            @media screen and (min-width: 1024px) {
+                max-width: 1024px;
+            }
+            @media screen and (min-width: 1280px) {
+                max-width: 1280px;
+            }
+        }
+    }
+</style>

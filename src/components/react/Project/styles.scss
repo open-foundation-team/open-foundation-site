@@ -1,0 +1,50 @@
+.project-styled {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    min-width: 0;
+    width: 350px;
+
+    .icon {
+
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: .25rem;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .no-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: .25rem;
+            background: hotpink;
+
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #fff;
+        }
+    }
+
+    .text {
+
+        color: #000;
+
+        .title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .description {
+            font-size: .8rem;
+            font-weight: 100;
+        }
+    }
+}

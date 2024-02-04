@@ -1,6 +1,7 @@
 ---
-import Section from "../components/Section.astro";
 import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import { Tabs } from "../components/react/Tabs/index";
 
 // List of technologies
 const techstack = [
@@ -12,6 +13,38 @@ const techstack = [
     "php",
     "react",
     "typescript",
+];
+
+// Project tabs
+const projectTabs = [
+    {
+        text: "all projects",
+        icon: "/icons/list.svg",
+        content: [
+            {
+                icon: "/logo.png",
+                title: "Open Foundation Site",
+                description: "Website for the Open Foundation.",
+                href: "https://github.com/open-foundation-team/open-foundation-site",
+            },
+            {
+                title: "Poker Planning",
+                description: "Scrum Poker for agile teams.",
+                href: "https://github.com/open-foundation-team/poker-planning",
+            },
+        ],
+    },
+    {
+        text: "typescript",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+        content: [
+            {
+                title: "Poker Planning",
+                description: "Scrum Poker for agile teams.",
+                href: "https://github.com/open-foundation-team/poker-planning",
+            },
+        ],
+    },
 ];
 ---
 
@@ -36,7 +69,11 @@ const techstack = [
         </Section>
 
         <!-- Projects section -->
-        <Section noSeparator />
+        <Section noSeparator>
+            <div class="project-section">
+                <Tabs tabs={projectTabs} client:load />
+            </div>
+        </Section>
 
         <!-- Languages section -->
         <Section>
@@ -60,12 +97,18 @@ const techstack = [
                 </div>
             </div>
         </Section>
+
+        <!--  -->
+        <Section isPrimary>
+            <div></div>
+        </Section>
     </main>
 </Layout>
 
 <style>
     main {
         margin-top: 12dvh;
+        margin-bottom: 20dvh;
     }
 
     .hero-section {
@@ -99,6 +142,16 @@ const techstack = [
         .hero-image {
             width: 45%;
         }
+    }
+
+    .project-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        width: 100%;
+        margin-bottom: 5rem;
     }
 
     .languages-section {

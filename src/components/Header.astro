@@ -13,7 +13,7 @@ interface Props {
 const { logo, siteName, links } = Astro.props;
 ---
 
-<div class="header-styled">
+<header class="header-styled">
     <div class="header-content">
         <a href="/" class="logo">
             <img src={logo} alt="Open Foundation logo" />
@@ -23,7 +23,7 @@ const { logo, siteName, links } = Astro.props;
             {links.map((link) => <a href={link.href}>{link.text}</a>)}
         </div>
     </div>
-</div>
+</header>
 
 <style type="sass">
     .header-styled {

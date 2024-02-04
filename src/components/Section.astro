@@ -7,7 +7,7 @@ interface Props {
 const { isPrimary, noSeparator } = Astro.props;
 ---
 
-<div
+<section
     class:list={[
         "section-styled",
         { primary: isPrimary, separator: !noSeparator },
@@ -16,7 +16,7 @@ const { isPrimary, noSeparator } = Astro.props;
     <div class="section-content">
         <slot />
     </div>
-</div>
+</section>
 
 <style type="sass">
     .section-styled {
