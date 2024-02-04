@@ -11,6 +11,7 @@ interface Props {
 }
 
 const { logo, siteName, links } = Astro.props;
+const currentPath = new URL(Astro.request.url).pathname;
 ---
 
 <header class="header-styled">
@@ -20,7 +21,16 @@ const { logo, siteName, links } = Astro.props;
             <p class="title">{siteName}</p>
         </a>
         <div class="links">
-            {links.map((link) => <a href={link.href}>{link.text}</a>)}
+            {
+                links.map((link) => (
+                    <a
+                        href={link.href}
+                        class:list={[{ active: currentPath === link.href }]}
+                    >
+                        {link.text}
+                    </a>
+                ))
+            }
         </div>
     </div>
 </header>
@@ -79,7 +89,8 @@ const { logo, siteName, links } = Astro.props;
                     color: #000;
 
                     &:hover,
-                    &:active {
+                    &:active,
+                    &.active {
                         color: #6b2aa1;
                     }
                 }
