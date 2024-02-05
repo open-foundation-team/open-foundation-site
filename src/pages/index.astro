@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ButtonLink from "../components/ButtonLink.astro";
 import Section from "../components/Section.astro";
 import { Tabs } from "../components/react/Tabs/index";
 
@@ -64,7 +65,7 @@ const projectTabs = [
                         deliver powerful and inovative ideas.
                     </p>
                 </div>
-                <img class="hero-image" src="/circuit.svg" alt="" />
+                <img class="hero-image" src="/space.svg" alt="" />
             </div>
         </Section>
 
@@ -98,9 +99,15 @@ const projectTabs = [
             </div>
         </Section>
 
-        <!--  -->
-        <Section isPrimary>
-            <div></div>
+        <!-- Work with us section -->
+        <Section isPrimary noSeparator>
+            <div class="work-section">
+                <p class="work-title">We'd love to work with you!</p>
+                <p class="work-subtitle">
+                    Have a project in mind? Leave us a message after the tone 🎶
+                </p>
+                <ButtonLink href="/contact">Let's build together</ButtonLink>
+            </div>
         </Section>
     </main>
 </Layout>
@@ -115,7 +122,7 @@ const projectTabs = [
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 2rem;
+        gap: 3rem;
 
         width: 100%;
 
@@ -125,7 +132,7 @@ const projectTabs = [
             align-items: flex-start;
             gap: 2rem;
 
-            width: 55%;
+            width: 50%;
             line-height: 1.5;
 
             .hero-heading {
@@ -138,9 +145,18 @@ const projectTabs = [
             }
         }
 
-        svg,
         .hero-image {
-            width: 45%;
+            width: 50%;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .hero-text {
+                width: 100%;
+            }
+
+            .hero-image {
+                display: none;
+            }
         }
     }
 
@@ -148,7 +164,7 @@ const projectTabs = [
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2rem;
+        gap: 4rem;
 
         width: 100%;
         margin-bottom: 5rem;
@@ -165,12 +181,15 @@ const projectTabs = [
             flex-direction: column;
             align-items: center;
             gap: 1rem;
+
             .title {
                 font-size: 1.5rem;
                 font-weight: 600;
+                color: #7f7f7f;
             }
             .subtitle {
                 font-weight: 100;
+                color: #7f7f7f;
             }
         }
 
@@ -183,6 +202,20 @@ const projectTabs = [
             .tech-logo {
                 width: 60px;
             }
+        }
+    }
+
+    .work-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        padding: 3rem 0;
+
+        .work-title {
+            font-size: 2rem;
+            font-weight: 600;
         }
     }
 </style>
