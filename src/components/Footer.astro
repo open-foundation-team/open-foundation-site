@@ -4,14 +4,34 @@ interface Link {
     href: string;
 }
 
-interface Props {}
+interface Props {
+    linkGroups: {
+        title: string;
+        links: Link[];
+    }[];
+}
 
-const {} = Astro.props;
+const { linkGroups } = Astro.props;
 ---
 
 <footer class="footer-styled">
     <div class="footer-content">
-        <div class="footer-top"></div>
+        <div class="footer-top">
+            {
+                linkGroups.map((group) => (
+                    <div class="footer-group">
+                        <p class="group-title">{group.title}</p>
+                        <ul class="group-links">
+                            {group.links.map((link) => (
+                                <li>
+                                    <a href={link.href}>{link.text}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))
+            }
+        </div>
         <div class="spacer"></div>
         <div class="footer-bottom">
             <p>
@@ -29,10 +49,11 @@ const {} = Astro.props;
         justify-content: center;
 
         width: 100%;
-        height: 20dvh;
+        height: 45dvh;
 
         background: #fff;
-        bottom: 0;
+
+        padding-top: 2rem;
 
         .footer-content {
             display: flex;
@@ -44,6 +65,45 @@ const {} = Astro.props;
             height: 100%;
             width: 100%;
             padding: 1rem;
+
+            .footer-top {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 2rem;
+
+                height: 100%;
+                width: 100%;
+
+                .footer-group {
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 1.5rem;
+
+                    .group-title {
+                        font-size: 1.1rem;
+                        font-weight: 600;
+                        text-transform: capitalize;
+                    }
+
+                    .group-links {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 0.75rem;
+
+                        text-transform: capitalize;
+
+                        a {
+                            color: #000;
+                            &:hover {
+                                color: #9956c0;
+                            }
+                        }
+                    }
+                }
+            }
 
             .footer-bottom {
                 display: flex;

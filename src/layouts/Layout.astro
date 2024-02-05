@@ -7,6 +7,51 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+const footerLinks = [
+    {
+        title: "open code",
+        links: [
+            {
+                text: "services",
+                href: "/",
+            },
+            {
+                text: "open source",
+                href: "/",
+            },
+            {
+                text: "github",
+                href: "/",
+            },
+            {
+                text: "about us",
+                href: "/",
+            },
+            {
+                text: "work with us",
+                href: "/contact",
+            },
+        ],
+    },
+    {
+        title: "Apps",
+        links: [
+            {
+                text: "poker planning",
+                href: "/",
+            },
+            {
+                text: "open code FM",
+                href: "/",
+            },
+            {
+                text: "github",
+                href: "/",
+            },
+        ],
+    },
+];
 ---
 
 <!doctype html>
@@ -32,7 +77,7 @@ const { title } = Astro.props;
             ]}
         />
         <slot />
-        <Footer />
+        <Footer linkGroups={footerLinks} />
     </body>
 </html>
 
